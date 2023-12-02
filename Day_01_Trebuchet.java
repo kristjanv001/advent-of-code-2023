@@ -6,7 +6,7 @@ import java.util.Map;
 
 public class Day_01_Trebuchet {
     public static void main(String[] args) {
-        String inputPath = "input.txt";
+        String inputPath = "sample.txt";
         int sum = 0;
 
         Map<String, Character> hashmap = new HashMap<>();
