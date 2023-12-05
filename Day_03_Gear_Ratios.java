@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
+
 public class Day_03_Gear_Ratios {
 
   public static Set<Integer> getAdjacentNumbers(ArrayList<char[]> grid, int row, int col) {
@@ -59,6 +60,7 @@ public class Day_03_Gear_Ratios {
 
   }
 
+
   public static void main(String[] args) {
     String inputPath = "input.txt";
     ArrayList<char[]> schematics = new ArrayList<>();
@@ -79,7 +81,6 @@ public class Day_03_Gear_Ratios {
       e.printStackTrace();
     }
 
-
     // iterate over every character (column)
     for (int i = 0; i < schematics.size(); i++) {
       char[] currentRow = schematics.get(i);
@@ -91,10 +92,14 @@ public class Day_03_Gear_Ratios {
         if (!Character.isDigit(currentChar) && currentChar != '.') {
           Set<Integer> adjacentNumbers = getAdjacentNumbers(schematics, i, j);
 
-          for (int adjNum : adjacentNumbers) {
-            // System.out.println(adjNum);
-            sumOfAdjNums += adjNum;
-            // System.out.println(sumOfAdjNums);
+          if (adjacentNumbers.size() == 2) {
+            int multipliedNums = 1;
+
+            for (int adjNum : adjacentNumbers) {
+              multipliedNums *= adjNum;
+            }
+            
+            sumOfAdjNums += multipliedNums;
           }
         }
       }
